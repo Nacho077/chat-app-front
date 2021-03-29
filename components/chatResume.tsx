@@ -1,12 +1,14 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Avatar, Icon } from 'react-native-elements'
+import { useSelector } from 'react-redux'
+import { storeType } from '../store'
+import {chat} from '../types'
 
-const ChatResume: React.FC = (): JSX.Element => {
-    const [photo, sender, message, name] = ["", "asd", "dsad", "dsada"]
-    const user = {
-        id: ""
-    }
+
+const ChatResume: React.FC<{chat: chat}> = ({chat}): JSX.Element => {
+    const user = useSelector((store: storeType) => store.user.user)
+    const {photo, name, messages} = chat
 
     return (
         <View style={s.container_main}>
@@ -18,13 +20,13 @@ const ChatResume: React.FC = (): JSX.Element => {
             <View style={s.container_name}>
                 <Text style={s.name}>{name}</Text>
                 <View>
-                    <Text style={s.message}>{message}</Text>
+                    <Text style={s.message}>{messages[messages.length - 1].message}</Text>
                 </View>
             </View>
             <View>
                 <Icon
                     style={s.icon}
-                    name={sender === user.id ? "" : "envelope"}
+                    name={messages[messages.length - 1].sender === user?.id ? "" : "envelope"}
                     type="font-awesome-5"
                 />
             </View>

@@ -1,19 +1,32 @@
 import React from 'react'
 import { ScrollView, View, TouchableOpacity, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParamList } from '../../types'
+
 import ChatResume from '../../components/chatResume'
+
+//types
+import { RootStackParamList, chat } from '../../types'
 
 type HomeProp = StackNavigationProp<RootStackParamList, 'Home'>
 
-const Home: React.FC<HomeProp> = ({navigate}): JSX.Element => {
-    const chats = [
+type props = {
+    navigation: HomeProp
+}
+
+const Home: React.FC<props> = ({ navigation }): JSX.Element => {
+    const chats: chat[] = [
         {
             photo: "",
             name: "",
             id: "asdasd",
-            sender: "asa",
-            message: "Hi"
+            messages: [
+                {
+                    id: "",
+                    sender: "asdf",
+                    message: "a",
+                    date: new Date()
+                }
+            ]
         }
     ]
 
@@ -21,8 +34,9 @@ const Home: React.FC<HomeProp> = ({navigate}): JSX.Element => {
         <ScrollView>
             {chats.map(chat => (
                 <View key={chat.id}>
-                    <TouchableOpacity>
-                        <ChatResume />
+                    <TouchableOpacity
+                        onPress={() => console.log(navigation.navigate("Chat", chat))}>
+                        <ChatResume chat={chat} />
                     </TouchableOpacity>
                     <View style={s.line} />
                 </View>
