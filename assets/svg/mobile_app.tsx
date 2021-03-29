@@ -1,7 +1,6 @@
 import React from 'react'
-import Svg, { Circle, Ellipse, Path, Polygon, Rect } from 'react-native-svg'
+import Svg, { Circle, Path, Polygon, Rect } from 'react-native-svg'
 
-// <SvgCss width='100%' height='100%' xml={xml}/>
 type props = {
     width?: string,
     height?: string
