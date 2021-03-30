@@ -1,5 +1,5 @@
 import React from 'react'
-import Svg, { Circle, Path, Polygon } from 'react-native-Svg'
+import Svg, { Circle, Path, Polygon } from 'react-native-svg'
 
 type props = {
     width?: string,
