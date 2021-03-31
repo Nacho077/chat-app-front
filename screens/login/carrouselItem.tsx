@@ -38,9 +38,10 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 7,
     overflow: 'hidden',
+    height: 300,
   },
   header: {
-    paddingTop: 20,
+    padding: 20,
     color: "gray",
     fontSize: 18,
     textAlign: 'center',

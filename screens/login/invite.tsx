@@ -84,7 +84,7 @@ const s = StyleSheet.create({
         alignItems: 'center',
     },
     container_carousel: {
-        maxHeight: 300,
+        maxHeight: 317,
     },
     container_text: {
         flex: 1,
