@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   header: {
-    paddingTop: 10,
+    paddingTop: 20,
     color: "gray",
-    fontSize: 28,
+    fontSize: 18,
     textAlign: 'center',
   },
 })

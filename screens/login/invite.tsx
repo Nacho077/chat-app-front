@@ -3,10 +3,8 @@ import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native'
 
 //images
 import Chatting from '../../assets/svg/chatting'
-import App from '../../assets/svg/mobile_app'
 import Message from '../../assets/svg/mobile_message'
 import Life from '../../assets/svg/modern_life'
-import Reading from '../../assets/svg/reading'
 
 //carousel
 import Carousel from 'react-native-snap-carousel'
@@ -21,27 +19,17 @@ type props = {
 const data = [{
         id: 1,
         image: <Chatting />,
-        title: `title`
-    },
-    {
-        id:2,
-        image: <App />,
-        title: 'title'
+        title: 'An app to talk to your friends'
     },
     {
         id:3,
         image: <Message />,
-        title: 'title'       
+        title: 'Create groups of up to 50 people'       
     },
     {
         id: 4,
         image: <Life />,
-        title: 'title'
-    },
-    {
-        id: 5,
-        image: <Reading />,
-        title: 'title'
+        title: 'Talk to whoever you want and where you want'
     }
 ]
 
