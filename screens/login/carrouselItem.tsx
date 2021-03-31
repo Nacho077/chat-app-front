@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 8,
     width: ITEM_WIDTH,
+    paddingTop: 10,
     paddingBottom: 40,
     shadowColor: "#000",
     shadowOffset: {
@@ -36,13 +37,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
     elevation: 7,
+    overflow: 'hidden',
   },
   header: {
-    color: "#222",
+    paddingTop: 10,
+    color: "gray",
     fontSize: 28,
-    fontWeight: "bold",
-    paddingLeft: 20,
-    paddingTop: 20
+    textAlign: 'center',
   },
 })
 

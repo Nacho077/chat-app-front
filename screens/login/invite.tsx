@@ -2,7 +2,11 @@ import React, { useRef } from 'react'
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native'
 
 //images
-import Svg from '../../assets/svg/chatting'
+import Chatting from '../../assets/svg/chatting'
+import App from '../../assets/svg/mobile_app'
+import Message from '../../assets/svg/mobile_message'
+import Life from '../../assets/svg/modern_life'
+import Reading from '../../assets/svg/reading'
 
 //carousel
 import Carousel from 'react-native-snap-carousel'
@@ -14,13 +18,32 @@ type props = {
     }
 }
 
-const data = Array.from({ length: 30 }).map((a, i) => {
-    return {
-        id: i,
-        image: <Svg />,
-        title: `title ${i + 1}`
+const data = [{
+        id: 1,
+        image: <Chatting />,
+        title: `title`
+    },
+    {
+        id:2,
+        image: <App />,
+        title: 'title'
+    },
+    {
+        id:3,
+        image: <Message />,
+        title: 'title'       
+    },
+    {
+        id: 4,
+        image: <Life />,
+        title: 'title'
+    },
+    {
+        id: 5,
+        image: <Reading />,
+        title: 'title'
     }
-})
+]
 
 const Invite: React.FC<props> = ({ navigation }): JSX.Element => {
     const isCarousel = useRef(null)
@@ -31,22 +54,23 @@ const Invite: React.FC<props> = ({ navigation }): JSX.Element => {
 
     return (
         <View style={s.container}>
-            {/* <Carousel
-                layout="tinder"
-                layoutCardOffset={9}
-                ref={isCarousel}
-                data={data}
-                renderItem={CarouselItem}
-                sliderWidth={SLIDER_WIDTH}
-                itemWidth={ITEM_WIDTH}
-                //scrollEnabled={false}
-                loop={true}
-                autoplay={true}
-                lockScrollWhileSnapping={true}
-                autoplayDelay={4000}
-                autoplayInterval={4000}
-            /> */}
-            <Svg />
+            <View style={s.container_carousel}>
+                <Carousel
+                    layout="tinder"
+                    layoutCardOffset={9}
+                    ref={isCarousel}
+                    data={data}
+                    renderItem={CarouselItem}
+                    sliderWidth={SLIDER_WIDTH}
+                    itemWidth={ITEM_WIDTH}
+                    //scrollEnabled={false}
+                    loop={true}
+                    autoplay={true}
+                    lockScrollWhileSnapping={true}
+                    autoplayDelay={4000}
+                    autoplayInterval={4000}
+                />
+            </View>
             <View style={s.container_text}>
                 <View style={s.container_line}>
                     <Text style={s.text}>You have account?</Text>
@@ -70,6 +94,9 @@ const s = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-evenly',
         alignItems: 'center',
+    },
+    container_carousel: {
+        maxHeight: 300,
     },
     container_text: {
         flex: 1,

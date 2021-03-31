@@ -7,7 +7,7 @@ type props = {
     height?: string
 }
 
-const SvgChatting = ({width = '300', height = '200'}: props) => (
+const SvgChatting = ({width = '250', height = '200'}: props) => (
     <Svg width={width} height={height} viewBox="0 0 891.29496 745.19434">
         <Ellipse cx="418.64354" cy="727.19434" rx="352" ry="18" fill="#f2f2f2"/>
         <Path d="M778.64963,250.35008h-3.99878V140.80476a63.40187,63.40187,0,0,0-63.4018-63.40193H479.16232a63.40188,63.40188,0,0,0-63.402,63.4017v600.9744a63.40189,63.40189,0,0,0,63.4018,63.40192H711.24875a63.40187,63.40187,0,0,0,63.402-63.40168V328.32632h3.99878Z" transform="translate(-154.35252 -77.40283)" fill="#3f3d56"/>

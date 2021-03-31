@@ -6,7 +6,7 @@ type props = {
     height?: string
 }
 
-const SvgChatting = ({width = '300', height = '200'}: props) => (
+const SvgChatting = ({width = '250', height = '200'}: props) => (
     <Svg width={width} height={height} viewBox="0 0 830.56679 711.72746">
         <Polygon points="68.348 169.893 455 169.893 455 296.824 440.354 296.824 440.354 330.021 407.157 296.824 68.348 296.824 68.348 169.893" fill="#e6e6e6"/>
         <Rect x="79.08798" y="182.25349" width="365.17166" height="101.54506" fill="#fff"/>
