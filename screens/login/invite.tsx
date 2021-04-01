@@ -43,7 +43,7 @@ const Invite: React.FC<props> = ({ navigation }): JSX.Element => {
     return (
         <View style={s.container}>
             <View style={s.container_carousel}>
-                <Carousel
+                {/* <Carousel
                     layout="tinder"
                     layoutCardOffset={9}
                     ref={isCarousel}
@@ -57,7 +57,7 @@ const Invite: React.FC<props> = ({ navigation }): JSX.Element => {
                     lockScrollWhileSnapping={true}
                     autoplayDelay={4000}
                     autoplayInterval={4000}
-                />
+                /> */}
             </View>
             <View style={s.container_text}>
                 <View style={s.container_line}>

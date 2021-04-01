@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 
 //redux
-import { storeType } from '../../store'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { getUser } from '../../redux/actionCreator'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
@@ -17,9 +16,12 @@ type props = {
     navigation: ChatNavigationProp
 }
 
-const Login: React.FC<props> = ({navigation}): JSX.Element => {
+const Login: React.FC<props> = ({ navigation }): JSX.Element => {
     const dispatch = useDispatch()
-    const user = useSelector((store: storeType) => store.user)
+    const [inputs, setInputs] = useState({
+        prefix: '+',
+        number: ''
+    })
 
     const handleUser = () => {
         dispatch(getUser(1))
@@ -28,20 +30,32 @@ const Login: React.FC<props> = ({navigation}): JSX.Element => {
 
     const handleRedirect = () => navigation.navigate('Register')
 
+    const hanldeInputs = (val: string, name: string): void => {
+        setInputs({
+            ...inputs,
+            [name]: val
+        })
+    }
+
     return (
         <View style={s.container}>
-            <Text>Welcome</Text>
-            <Text>Your phone?</Text>
+            <Text style={s.title}>Verify you phone number</Text>
+            <Text style={s.subtitle}>We will send an SMS message to verify you phone number!</Text>
             <View style={s.container_inputs}>
-                <View style={s.container_number}>
-                    <Text style={s.separator}>+</Text>
-                    <TextInput style={s.input} />
-                </View>
-                <View style={s.container_number}>
-                    <TextInput style={s.input} />
-                    <Text style={s.separator}>-</Text>
-                    <TextInput style={s.input} />
-                </View>
+                <TextInput
+                    style={s.input}
+                    placeholder="+"
+                    keyboardType="number-pad"
+                    onChangeText={(val: string) => hanldeInputs(val, 'prefix')}
+                    value={inputs.prefix}
+                />
+                <TextInput
+                    style={s.input}
+                    placeholder="Phone number"
+                    keyboardType="number-pad"
+                    onChangeText={(val: string) => hanldeInputs(val, 'number')}
+                    value={inputs.number}
+                />
             </View>
             <TouchableOpacity onPress={handleUser} style={s.btn}>
                 <Text>
@@ -63,46 +77,38 @@ const Login: React.FC<props> = ({navigation}): JSX.Element => {
 const s = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
+    },
+    title: {
+        color: '#7D4298',
+        fontSize: 26,
+    },
+    subtitle: {
+        padding: 20,
+        fontSize: 20,
+        textAlign: 'center',
     },
     container_inputs: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        maxHeight: 40,
-        width: 300,
+        maxHeight: 100,
     },
     input: {
-        borderBottomColor: 'gray',
-        borderBottomWidth: .5,
-        width: 80,
-        height: 40,
-        marginLeft: 5,
-        padding: 5,
-        fontSize: 30,
-    },
-    separator: {
-        fontSize: 30,
-    },
-    container_number: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        maxWidth: 180,
-    },
-    btn: {
-        borderRadius: 8,
-        borderWidth: .5,
-        borderColor: 'gray',
+        width: 140,
+        height: 50,
         padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#7D4298',
+        fontSize: 18,
     },
+    btn: {},
     container_text: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
-        maxHeight: 100,
+        maxHeight: 25,
     },
     text: {
         fontSize: 16,
