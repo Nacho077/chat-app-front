@@ -36,9 +36,10 @@ const Login: React.FC<props> = ({ navigation }): JSX.Element => {
                 val = '+ '
             }
         }else if(name === 'number'){
-            let newVal = val.split("-")
-            console.log(newVal)
-            if(val.length < 9 && val.length > 5){
+            let newVal = val.split("-").join("")
+            if(val.length > 5){
+                val = val
+            }else if(val.length < 7){
                 /* let newNum = []
                 let middle = Math.round(val.length / 2)
                 for(let i = 0; i < val.length; i++){
@@ -49,12 +50,11 @@ const Login: React.FC<props> = ({ navigation }): JSX.Element => {
                     }
                 }
                 console.log(newNum.join("")) */
-                let regex = /\d{1,4}/g
+                let regex = /\d{1,3}/g
                 val = val.match(regex)?.join("-") || val
-            }
-            if(val.length > 9){
-                let regex = /\d{1,2}d{1,4}\d{4}$/
-                console.log(val.match(regex))
+            }else if(val.length > 8){
+                let regex = /\d{1,4}/g
+                val = newVal.match(regex)?.join("-") || val
             }
         }
         setInputs({
@@ -84,7 +84,7 @@ const Login: React.FC<props> = ({ navigation }): JSX.Element => {
                 />
             </View>
             <TouchableOpacity onPress={handleUser} style={s.btn}>
-                <Text>
+                <Text style={s.btn_text}>
                     Log in
                 </Text>
             </TouchableOpacity>
@@ -126,7 +126,7 @@ const s = StyleSheet.create({
         width: 100,
         height: 50,
         padding: 10,
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         borderBottomColor: '#7D4298',
         fontSize: 22,
     },
@@ -134,12 +134,30 @@ const s = StyleSheet.create({
         width: 170,
         height: 50,
         padding: 10,
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         borderBottomColor: '#7D4298',
         fontSize: 22,
         textAlign: 'center',
     },
-    btn: {},
+    btn: {
+        backgroundColor: '#7D4298',
+        width: 140,
+        minHeight: 60,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 8,
+        shadowColor: '#7D4298',
+        shadowOpacity: .5,
+        shadowOffset: {
+            width: 5,
+            height: 5
+        },
+    },
+    btn_text: {
+        fontSize: 22,
+        color: 'white',
+    },
     container_text: {
         flex: 1,
         flexDirection: 'row',
