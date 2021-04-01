@@ -37,7 +37,7 @@ const MyStack = (): JSX.Element => (
 			}
 		}}
 	>
-		{/* <Stack.Screen name="Home" component={Home} />
+		<Stack.Screen name="Home" component={Home} />
 		<Stack.Screen
 			name="Chat"
 			component={Chat}
@@ -54,7 +54,7 @@ const MyStack = (): JSX.Element => (
 					onPress={() => console.log(props)}
 				/>
 			})}
-		/> */}
+		/>
 		<Stack.Screen
 			name="Login"
 			component={Login}
