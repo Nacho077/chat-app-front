@@ -27,7 +27,7 @@ type props = {
 const tabNavigator: React.FC<props> = ({navigation}): JSX.Element => {
     const user = useSelector((store: storeType) => store.user)
 
-    return user.user ? (
+    return <Invite navigation={navigation}/>/* user.user ? (
         <Tab.Navigator
             initialRouteName="Home"
             tabBarOptions={{
@@ -46,7 +46,7 @@ const tabNavigator: React.FC<props> = ({navigation}): JSX.Element => {
         >
             <Tab.Screen name="Home" component={Home} />
         </Tab.Navigator>
-    ) : <Invite navigation={navigation}/>
+    ) : <Invite navigation={navigation}/> */
 }
 
 export default tabNavigator
