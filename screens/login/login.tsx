@@ -37,24 +37,18 @@ const Login: React.FC<props> = ({ navigation }): JSX.Element => {
             }
         }else if(name === 'number'){
             let newVal = val.split("-").join("")
-            if(val.length > 5){
+            if(val.length < 6){
                 val = val
-            }else if(val.length < 7){
-                /* let newNum = []
-                let middle = Math.round(val.length / 2)
-                for(let i = 0; i < val.length; i++){
-                    if(i !== middle) newNum.push(val[i])
-                    else {
-                        newNum.push('-')
-                        newNum.push(val[i])
-                    }
-                }
-                console.log(newNum.join("")) */
+            }else if(val.length === 6){
                 let regex = /\d{1,3}/g
-                val = val.match(regex)?.join("-") || val
-            }else if(val.length > 8){
+                val = newVal.match(regex)?.join("-") ||val
+            }else if(val.length ===  8){
                 let regex = /\d{1,4}/g
                 val = newVal.match(regex)?.join("-") || val
+            }else if(val.length > 8){
+                let regex = /\d{1,2}/g
+                let [pre, first, sec, third, last] = newVal.match(regex) || []
+                val = `${pre}-${first}${sec}-${third}${last || ''}`
             }
         }
         setInputs({
@@ -142,7 +136,7 @@ const s = StyleSheet.create({
     btn: {
         backgroundColor: '#7D4298',
         width: 140,
-        minHeight: 60,
+        maxHeight: 60,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
