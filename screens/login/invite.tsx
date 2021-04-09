@@ -51,7 +51,6 @@ const Invite: React.FC<props> = ({ navigation }): JSX.Element => {
                     renderItem={CarouselItem}
                     sliderWidth={SLIDER_WIDTH}
                     itemWidth={ITEM_WIDTH}
-                    //scrollEnabled={false}
                     loop={true}
                     autoplay={true}
                     lockScrollWhileSnapping={true}
